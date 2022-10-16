@@ -1,7 +1,13 @@
 #include <iostream>
+#include "src/Point.h"
+#include "src/LatticeFieldTheory.h"
+#include "tests.h"
+
+using namespace std;
 
 int main() {
-    int a = 10;
-    std::cout << "Hello, World!" << a << std::endl;
+    //testNeighbours();
+
+
     return 0;
 }
