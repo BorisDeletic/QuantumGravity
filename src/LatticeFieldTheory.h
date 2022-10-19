@@ -16,6 +16,7 @@ public:
     LatticeFieldTheory(int n, double lambda, double delta);
 
     double potential(double x);
+    double magnetisation();
 
     double fieldValue(Point& p) {return field[p.point[0]][p.point[1]][p.point[2]][p.point[3]]; };
     void setField(Point& p, double newField) { field[p.point[0]][p.point[1]][p.point[2]][p.point[3]] = newField; }
@@ -23,7 +24,7 @@ public:
     double neighbourSum(Point& p);
     double scalarActionDifference(Point& p, double newField, double kappa);
 
-    bool stepMH(double kappa);
+    int stepMH(double kappa);
     int runStepsMH(double kappa, int steps);
 
     vector<vector<vector<vector<double> > > > field;

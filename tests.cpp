@@ -7,9 +7,9 @@
 #include "src/LatticeFieldTheory.h"
 
 
-void testNeighbours()
+void testNeighbours(vector<int> point)
 {
-    Point testP({0,1,1,1});
+    Point testP(point);
 
     vector<Point> neighbours = testP.getNeighbours(10);
     for (Point neighbour : neighbours) {

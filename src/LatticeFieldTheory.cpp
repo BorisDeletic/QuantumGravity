@@ -50,7 +50,7 @@ double LatticeFieldTheory::scalarActionDifference(Point &p, double newField, dou
     return actionChange;
 }
 
-bool LatticeFieldTheory::stepMH(double kappa) {
+int LatticeFieldTheory::stepMH(double kappa) {
     vector<int> rands;
     rands.push_back(pointRNG(gen));
     rands.push_back(pointRNG(gen));
@@ -69,12 +69,33 @@ bool LatticeFieldTheory::stepMH(double kappa) {
 
     if ((actionChange < 0) || r < exp(-actionChange)) {
         setField(p, newField);
-        return true;
+        return 1;
     }
-    return false;
+    return 0;
 }
 
 int LatticeFieldTheory::runStepsMH(double kappa, int steps) {
-    return 0;
+    int accepted = 0;
+
+    for (int i = 0; i < steps; i++) {
+        accepted += stepMH(kappa);
+    }
+    return accepted;
+}
+
+double LatticeFieldTheory::magnetisation() {
+    // return mean field value in lattice
+    double mag = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            for (int k = 0; k < n; k++) {
+                for (int l = 0; l < n; l++) {
+                    mag += field[i][j][k][l];
+                }
+            }
+        }
+    }
+
+    return mag;
 }
 

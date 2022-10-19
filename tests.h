@@ -5,6 +5,6 @@
 #ifndef QUANTUMGRAVITY_TESTS_H
 #define QUANTUMGRAVITY_TESTS_H
 
-void testNeighbours();
+void testNeighbours(vector<int> point);
 
 #endif //QUANTUMGRAVITY_TESTS_H
