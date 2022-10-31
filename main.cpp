@@ -6,7 +6,7 @@
 using namespace std;
 
 void meanMag() {
-    int n = 5;
+    int n = 4;
 
     int latticeSize = n*n*n*n;
     int equilSteps = latticeSize * 1000;
