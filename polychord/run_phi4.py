@@ -10,7 +10,7 @@ import matplotlib.colors as mcolors
 from mpi4py import MPI
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
-plt.style.use("prb")
+# plt.style.use("prb")
 
 M2 = -4.0
 lam = 1.0
