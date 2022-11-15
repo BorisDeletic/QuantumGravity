@@ -1,0 +1,14 @@
+POLYCHORD:
+NLive is resolution of parameter space (theta)
+what is the map Hypercube -> Theta? Why do we need it.
+What if we have distinct classes of Theta e.g. (Field value, Triangulation configuration).
+What is ndead, posteriors?
+
+--- Scaling with dimension ---
+Assume we have fast likelihood calls.
+How does (Nlive, Nrepeats, phantoms, posteriors, equals) scale with dimension?
+How does slice sampling scale with dimension? Do we have to sample all Theta_i each iteration?
+How does clustering scale with dimension?
+How well is topological freezing handled with increasing dimension, e.g. Ising model.
+How does autocorrelation in the markov chain scale with dimension compared to HMC?
+

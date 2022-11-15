@@ -1,5 +1,5 @@
 import pypolychord as pc
-
+import time
 from pypolychord.priors import UniformPrior,GaussianPrior
 from phi4 import ScalarPhi4Action
 import jax.numpy as jnp
@@ -15,7 +15,7 @@ rank = comm.Get_rank()
 M2 = -4.0
 lam = 1.0
 #3x3 lattice for now
-L=3
+L=8
 nf=1
 #change alpha to match figure
 alpha=0.0
@@ -45,7 +45,7 @@ settings.read_resume = False
 settings.write_resume = False
 settings.base_dir="phi4"
 settings.file_root="alpha_%s"%str(alpha)
-settings.num_repeats = nDims*10
+settings.num_repeats = 100
 settings.boost_posterior=settings.num_repeats
 settings.nprior = settings.nlive * 10
 
@@ -54,12 +54,13 @@ pc.run_polychord(wrapped_like, prior=prior, nDims=nDims, nDerived=1, settings=se
 
 def draw_magnetization(samples,filename):
     #
+    print("saving png")
     mags=samples.to_numpy()[...,-4]
     f, a = plt.subplots()
     a.hist(mags,bins=30,weights=samples.get_weights())
     a.set_xlabel(r"$\bar{\phi}$")
     a.set_ylabel(r"Density")
-    f.suptitle(r"$\phi^4$ theory, $V(\phi)=\frac{\mu^2}{2}\phi^2 + \lambda \phi^4 + \alpha\phi\,, \quad \lambda=%s, \mu=%s$"%(str(lam),str(M2)))
+    f.suptitle(r"$\phi^4$ theory, $V(\phi)=\frac{\mu}{2}\phi^2 + \lambda \phi^4 + \alpha\phi\,, \quad \lambda=%s, \mu=%s$"%(str(lam),str(M2)))
     f.savefig(filename+".png")
 
 if rank==0:
