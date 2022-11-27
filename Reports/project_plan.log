@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.26)  27 NOV 2022 18:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.26)  27 NOV 2022 22:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -149,40 +149,61 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 <logo.png, id=1, 180.675pt x 226.8475pt>
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 20.
+(pdftex.def)             Requested size: 45.32301pt x 56.9055pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 29.
+(Font)              <7> on input line 28.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 29.
+(Font)              <5> on input line 28.
 
 [1
 
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./logo.
+png>]
 <cdt.jpeg, id=13, 301.87115pt x 182.91345pt>
+File: cdt.jpeg Graphic file (type jpg)
+<use cdt.jpeg>
+Package pdftex.def Info: cdt.jpeg  used on input line 51.
+(pdftex.def)             Requested size: 258.75pt x 156.79732pt.
+ [1]
+<ns.png, id=21, 666.49pt x 355.3275pt>
+File: ns.png Graphic file (type png)
+<use ns.png>
+Package pdftex.def Info: ns.png  used on input line 62.
+(pdftex.def)             Requested size: 258.75pt x 137.94823pt.
+ [2 <./cdt.jpeg> <./ns.png>] [3]
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
+[]\OT1/cmr/m/n/10 Hastings, W.K. (1970). Monte Carlo Sam-pling Meth-
+ []
 
-[1]
-<ns.png, id=21, 1100.11pt x 692.5875pt>
- [2] [3] (./project_plan.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
+\OT1/cmr/m/n/10 ods Us-ing Markov Chains and Their Ap-pli-ca-tions.
+ []
+
+[4] (./project_plan.aux) ) 
 Here is how much of TeX's memory you used:
- 2920 strings out of 478268
- 45271 string characters out of 5846346
- 340756 words of memory out of 5000000
- 21140 multiletter control sequences out of 15000+600000
- 471244 words of font info for 35 fonts, out of 8000000 for 9000
+ 2940 strings out of 478268
+ 45493 string characters out of 5846346
+ 340773 words of memory out of 5000000
+ 21162 multiletter control sequences out of 15000+600000
+ 471076 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,13n,62p,618b,274s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2022/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmtt10.pfb>
-Output written on project_plan.pdf (4 pages, 112536 bytes).
+ 55i,13n,62p,618b,270s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2022/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb>
+Output written on project_plan.pdf (5 pages, 216786 bytes).
 PDF statistics:
- 66 PDF objects out of 1000 (max. 8388607)
+ 65 PDF objects out of 1000 (max. 8388607)
  37 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
