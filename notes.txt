@@ -12,3 +12,11 @@ How does clustering scale with dimension?
 How well is topological freezing handled with increasing dimension, e.g. Ising model.
 How does autocorrelation in the markov chain scale with dimension compared to HMC?
 
+
+
+Gradient implementation for nested sampling (HMC)
+CDT with nested sampling
+
+Using nested sampling for coarse grained sampling.
+
+Termination parameter.

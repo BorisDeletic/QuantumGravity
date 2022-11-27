@@ -1,13 +1,15 @@
 Things to explore:
 Confinement in the Schwinger model
 Non flat spacetime lattices
-Phi to the four LFT with Nested Sampling
-
+Phi to the four with Nested Sampling
+Fermion vs Boson fields
 
 GPU ising - https://github.com/NVIDIA/ising-gpu
-CDT (causal dynamical triangulations) - 1+1
+
+CDT (causal dynamical triangulations) - 1+1, 1+2,
 EDT (euclidean dynamical triangulations) - Tim Budd
 
 Nested Sampling with Ising Model - then phi to the four - eventually gravity.
+
 How does Schwinger model exhibit confinement?
 
