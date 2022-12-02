@@ -4,7 +4,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{hyperref}
-
+\usepackage{xcolor}
 
 \newcommand{\getAuthor}{Boris Deletic}
 \newcommand{\getDoctype}{Project Plan}
@@ -15,6 +15,12 @@ Kavli Institute of Physics\\[1em]
 \textbf{David Yallup}\\ 
 Kavli Institute of Physics}
 \newcommand{\getSubmissionDate}{\today}
+
+\lstset { %
+    language=C++,
+    backgroundcolor=\color{black!5}, % set backgroundcolor
+    basicstyle=\footnotesize,% basic font setting
+}
 
 \begin{document}
 \begin{titlepage} 
@@ -104,8 +110,56 @@ Kavli Institute of Physics}
     traditionally applied to statistical mechanics, for this application
     of lattice field theory.
 
+    \subsection{Code Implementation}
     Solving $\phi^4$ theory has already been implemented in C++ using
-    MH with the code and results on \url{https://github.com/BorisDeletic/QuantumGravity}.
+    MH with the code and results on
+    \url{https://github.com/BorisDeletic/QuantumGravity}.
+
+    Below is a snippet of code for calculating the change in action
+    for a change field configuration at a lattice point
+\begin{lstlisting}
+double LatticeFieldTheory::scalarActionDifference
+(Point &p, double newField, double kappa) {
+
+    // compute change in the action for new field value at a point
+    double oldField = fieldValue(p);
+    double potentialChange = potential(oldField) - potential(newField);
+
+    double actionChange = 2 * kappa * neighbourSum(p) * 
+                          (oldField - newField) - potentialChange;
+
+    return actionChange;
+}
+\end{lstlisting}
+
+    Below is a snippet of the implementation of the
+    Metropolis-Hastings algorithm as described.
+\begin{lstlisting}
+int LatticeFieldTheory::stepMH(double kappa) {
+    vector<int> rands;
+    rands.push_back(pointRNG(gen));
+    rands.push_back(pointRNG(gen));
+    rands.push_back(pointRNG(gen));
+    rands.push_back(pointRNG(gen));
+
+    Point p = Point(rands);
+
+    uniform_real_distribution<double> distr(-delta, delta);
+    double rngField = distr(gen);
+
+    double newField = fieldValue(p) + rngField;
+    double actionChange = scalarActionDifference(p, newField, kappa);
+
+    double r = uniformRNG(gen); // random in (0,1)
+
+    if ((actionChange < 0) || r < exp(-actionChange)) {
+        setField(p, newField);
+        return 1;
+    }
+    return 0;
+}
+\end{lstlisting}
+
     
     \section{Nested Sampling}
     Nested Sampling is a bayesian inference algorithm which aims to
@@ -135,13 +189,18 @@ Kavli Institute of Physics}
 
       
     \subsection{Topological Freezing}
-    One main potential advantage is the resistance to
-    topological freezing which occurs near the transition critical point, an
+    One main potential advantage of Nested Sampling over Metropolis-Hastings is the resistance to
+    topological freezing, which occurs near the transition critical
+    point. This is an
     effect where the system gets stuck in local minima and rejection
-    rates of montecarlo methods become very high. This is a well known
+    rates of the monte carlo methods become very high. This is a well known
     phenomenon and is an active area of research.\cite{4} Nested
     Sampling overcomes topological freezing with its use of clustering
-    and bimodal exploration of a distribution.
+    and multimodal exploration of a distribution. The has been recent
+    work in new sampling schemes to overcome this issue, in particular
+    normalising flows\cite{5}. These new methods have similar
+    limitations with dimensionality as nested sampling, providing
+    motivation to explore nested sampling as an alternative in this context.
 
     \subsection{NS Algorithm}
     The basic approach of the algorithm is to keep multiple instances
@@ -157,7 +216,7 @@ Kavli Institute of Physics}
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.75\textwidth]{ns}
-\caption{Nested Sampling Bimodal Clustering. Iso-Likelihood lines in
+\caption{Nested Sampling Multimodal Clustering. Iso-Likelihood lines in
   parameter space (left), likelihood maximisation given input
   parameters (right).}
 \end{figure}
@@ -220,10 +279,15 @@ Hastings, W.K. (1970). Monte Carlo Sampling Methods Using Markov Chains and Thei
 \bibitem{3}
 Israel, Norman. (1970). Monte Carlo Sampling Methods Using Markov
 Chains and Their
-Applications. https://doi.org/10.1016/j.rinp.2012.10.001
+ Applications. https://doi.org/10.1016/j.rinp.2012.10.001
 
 \bibitem{4}
-Hasenbusch, Martin. (2017). Fighting topological freezing in the two-dimensional CPN1 model. https://arxiv.org/abs/1709.09460
+Hasenbusch, Martin. (2017). Fighting topological freezing in the
+two-dimensional CPN1 model. https://arxiv.org/abs/1709.09460
+
+\bibitem{5}
+Hackett. C. Daniel, Et al. (2021). Flow-based sampling for multimodal
+distributions in lattice field theory. https://arxiv.org/abs/2107.00734
 \end{thebibliography}
 
 \end{document}
