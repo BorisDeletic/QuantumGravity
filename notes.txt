@@ -13,10 +13,27 @@ How well is topological freezing handled with increasing dimension, e.g. Ising m
 How does autocorrelation in the markov chain scale with dimension compared to HMC?
 
 
+GPU ising - https://github.com/NVIDIA/ising-gpu
 
-Gradient implementation for nested sampling (HMC)
+CDT (causal dynamical triangulations) - 1+1, 1+2,
+EDT (euclidean dynamical triangulations) - Tim Budd
+
+
+Things to explore:
+Confinement in the Schwinger model
+Non flat spacetime lattices
+Fermion vs Boson fields
+
+Phi to the four with Nested Sampling
 CDT with nested sampling
 
+Gradient implementation for nested sampling (HMC)
 Using nested sampling for coarse grained sampling.
-
 Termination parameter.
+
+-----------
+Plan:
+Nested Sampling with Ising Model - then phi to the four - eventually gravity.
+
+-----------
+Lots of potential changes to improve NS as an alternative to MCMC.
