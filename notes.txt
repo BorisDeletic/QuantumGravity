@@ -17,7 +17,8 @@ GPU ising - https://github.com/NVIDIA/ising-gpu
 
 CDT (causal dynamical triangulations) - 1+1, 1+2,
 EDT (euclidean dynamical triangulations) - Tim Budd
-
+Lattice QCD sims do 96^3 X 96 sized lattices for g-2 factor (unknown number of fields generated)
+Speak to Lattice QCD group at damtp
 
 Things to explore:
 Confinement in the Schwinger model
@@ -27,7 +28,7 @@ Fermion vs Boson fields
 Phi to the four with Nested Sampling
 CDT with nested sampling
 
-Gradient implementation for nested sampling (HMC)
+Gradient sampling implementation for nested sampling (HMC)
 Using nested sampling for coarse grained sampling.
 Termination parameter.
 
@@ -37,3 +38,10 @@ Nested Sampling with Ising Model - then phi to the four - eventually gravity.
 
 -----------
 Lots of potential changes to improve NS as an alternative to MCMC.
+
+Schwinger model action is non local after we integrate out the fermion fields.
+This means small MCMC steps (MH) have high rejection rates as change a field value has rippling effects throughout lattice.
+Therefore large proposal changes to the field configuration with high acceptance rate is more efficient (HMC).
+Not sure how well slice sampling will deal with non-local likelihood (hopefully well). Good direction to explore next with schwinger model.
+
+Add an autocorrelation term to our likelihood to factor the transition variable (temperature) for phase transition.
